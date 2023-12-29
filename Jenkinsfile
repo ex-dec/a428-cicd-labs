@@ -1,6 +1,7 @@
 node {
     docker.image('node:16-buster-slim').inside {
-        pollSCM '*/2 * * * *'
+        pollSCM branches: 'react-app', cron: '*/2 * * * *'
+
         stage('Build') {
             sh 'npm install'
         }
