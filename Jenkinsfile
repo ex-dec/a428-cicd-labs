@@ -1,10 +1,10 @@
 node {
-    stage('Build') {
-        docker.image('node:latest').inside {
+    docker.image('node:latest').inside {
+        stage('Build') {
             sh 'npm install'
         }
-    }
-    stage('Test') {
-        sh './jenkins/scripts/test.sh'
+        stage('Test') {
+            sh './jenkins/scripts/test.sh'
+        }
     }
 }
